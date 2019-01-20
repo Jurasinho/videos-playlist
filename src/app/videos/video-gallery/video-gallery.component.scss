@@ -1,0 +1,25 @@
+.video-gallery{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 10px;
+    .video{
+        width: 300px;
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid silver;
+        border-radius: 20px;
+
+        &-thumbnail{
+            max-width: 300px;
+            width: 100%;
+        }
+
+        &-title{
+            
+        }
+    }
+    &__wrapper{
+        padding: 20px;
+    }
+}

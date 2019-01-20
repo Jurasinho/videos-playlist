@@ -1,0 +1,28 @@
+<div>
+  <div *ngIf="video" class="video">
+    <div class="video-player-wrapper" #videoPlayerWrapper>
+        <youtube-player
+        [videoId]="video.youtubeId"
+        (ready)="savePlayer($event)"
+        (change)="onStateChange($event)"
+      ></youtube-player>
+    </div>
+
+    <app-video-comments 
+      [video]="video"
+      class="comments">
+    </app-video-comments>
+    
+    <div class="video-meta">
+      <div class="video-title-bar">
+        <h3 class="video-title">{{video.name}}</h3>
+      </div>
+      <div class="video-orginal-url">
+        <a [href]="video.url">{{video.url}}</a>
+      </div>
+      <div class="video-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolorem repellat sit at quasi eligendi perspiciatis! Repellendus, optio qui voluptates nesciunt, rerum est explicabo, iste laborum quo aut temporibus fugit.
+      </div>
+    </div>
+  </div>
+</div>

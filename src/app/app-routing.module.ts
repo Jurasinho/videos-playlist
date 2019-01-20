@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
 
-const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot([
+    {path: "", component: WelcomeComponent},
+    {
+      path: 'videos', 
+      loadChildren: './videos/videos.module#VideosModule'
+    }
+  ], { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

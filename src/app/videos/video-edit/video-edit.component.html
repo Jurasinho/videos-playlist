@@ -1,0 +1,72 @@
+<div class="wrapper">
+  <div 
+    class="videoEdit card" 
+    *ngIf="video">
+    <h2>{{pageTitle}}</h2>
+    <div>
+        <form
+          [formGroup]="videoForm"
+          (ngSubmit)="save()"
+        >
+          <img [src]="video.thumbnailUrl" alt="">
+          <div class="form-group row mb-2">
+            <label 
+              class="col-md-2 col-form-label"
+              for="">Nazwa</label>
+            <input 
+              type="text"
+              class="form-control"
+              formControlName="name"
+              [ngClass]="{'is-invalid': (
+                videoForm.get('name').touched ||
+                videoForm.get('name').dirty) && !videoForm.get('name').valid
+              }">
+              <span class="invalid-feedback">
+                <span *ngIf="videoForm.get('name').errors?.required">Nazwa jest wymagana.</span>
+              </span>
+            
+          </div>
+          <div class="form-group row mb-2">
+              <label 
+                class="col-md-2 col-form-label"
+                for="">Link</label>
+              <input 
+                type="text"
+                class="form-control"
+                formControlName="url"
+                [ngClass]="{'is-invalid': (
+                  videoForm.get('url').touched ||
+                  videoForm.get('url').dirty) && !videoForm.get('url').valid
+                }">
+                <span class="invalid-feedback">
+                  <span *ngIf="videoForm.get('url').errors?.required">Link jest wymagany.</span>
+                </span>
+                <span >
+                  YoutubeID = {{video.youtubeId}}
+                </span>
+                
+            </div>
+           
+          <div class="form-group row mb-2">
+              <label 
+                class="col-md-2 col-form-label"
+                for="">Opis</label>
+              <textarea 
+                type="text"
+                class="form-control"
+                formControlName="description">
+              </textarea>
+            </div>
+          <div class="form-group">
+            <button 
+              [disabled]="!videoForm.valid"
+              type="submit"
+              class="btn btn-primary">
+              Zapisz
+            </button>
+          </div>
+        </form>
+    </div>
+    
+  </div>
+</div>

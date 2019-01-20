@@ -1,0 +1,34 @@
+<div class="video-gallery__wrapper">
+  <div class="row">
+    <div class="col">
+      <button 
+      class="btn btn-primary" 
+      [routerLink]="['/videos', '0', 'edit']">
+        Dodaj video
+      </button>
+    </div>
+  </div>
+  <div class="video-gallery">
+
+
+  <div class="video" *ngFor="let video of videos">
+      <a [routerLink]="['/videos', video.slug]">
+    <img 
+      class="  video-thumbnail" 
+      [src]="video.thumbnailUrl" 
+      alt="" width="100%">
+    <h3 class="video-title">
+        {{video.name}}
+    </h3>
+    
+  </a>
+    <a [routerLink]="['/videos', video.slug, 'edit']">
+      edytuj
+    </a>
+    
+    <a (click)="delete(video)">
+      edytuj
+    </a>
+  </div>
+</div>
+</div>
